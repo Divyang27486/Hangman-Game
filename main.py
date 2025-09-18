@@ -15,16 +15,17 @@ while not Game_Over:
     Guess_Letter = input("\nGuess a letter:").lower()
     for letter in Word:
         if letter == Guess_Letter:
-            Final_Word += Guess_Letter
-            Correct_letters.append(Guess_Letter)
-        elif letter in Correct_letters:
-            Final_Word += letter
-            print("You already guess this letter")
+            if letter in Correct_letters:
+                Final_Word += letter
+                print("You already guess this letter")
+            else:
+                Final_Word += Guess_Letter
+                Correct_letters.append(Guess_Letter)
         else:
             Final_Word += "_"
     if Guess_Letter not in Word:
         Lives -= 1
-        print(f"{Guess_Letter}, It is not in the Word")
+        print(Guess_Letter, "It is not in the Word")
     print(Final_Word)
     print(Lives, "/6")
     print(Hangman_Photos.HANGMANPICS[6-Lives])
