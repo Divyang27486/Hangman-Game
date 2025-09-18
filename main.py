@@ -24,10 +24,10 @@ while not Game_Over:
             Final_Word += "_"
     if Guess_Letter not in Word:
         Lives -= 1
+        print(f"{Guess_Letter}, It is not in the Word")
     print(Final_Word)
     print(Lives, "/6")
     print(Hangman_Photos.HANGMANPICS[6-Lives])
-    print(Guess_Letter, "It is not in the Word")
 
     if "_" not in Final_Word:
         Game_Over = True
